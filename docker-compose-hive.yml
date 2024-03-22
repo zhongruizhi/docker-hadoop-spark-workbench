@@ -1,7 +1,7 @@
 version: '2' 
 services:
   namenode:
-    image: bde2020/hadoop-namenode:1.1.0-hadoop2.8-java8
+    image: ruizhizhong058/hadoop-namenode:3.3.6-java8
     container_name: namenode
     volumes:
       - ./data/namenode:/hadoop/dfs/name
@@ -12,7 +12,7 @@ services:
     ports:
       - 50070:50070
   datanode:
-    image: bde2020/hadoop-datanode:1.1.0-hadoop2.8-java8
+    image: ruizhizhong058/hadoop-datanode:3.3.6-java8
     depends_on: 
       - namenode
     volumes:
@@ -22,7 +22,7 @@ services:
     ports:
       - 50075:50075
   hive-server:
-    image: bde2020/hive:2.1.0-postgresql-metastore
+    image: ruizhizhong058/hive:2.1.0-postgresql-metastore
     container_name: hive-server
     env_file:
       - ./hadoop-hive.env
@@ -31,15 +31,15 @@ services:
     ports:
       - "10000:10000"
   hive-metastore:
-    image: bde2020/hive:2.1.0-postgresql-metastore
+    image: ruizhizhong058/hive:2.1.0-postgresql-metastore
     container_name: hive-metastore
     env_file:
       - ./hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
   hive-metastore-postgresql:
-    image: bde2020/hive-metastore-postgresql:2.1.0
+    image: ruizhizhong058/hive-metastore-postgresql:2.1.0
   spark-master:
-    image: bde2020/spark-master:2.1.0-hadoop2.8-hive-java8
+    image: ruizhizhong058/spark-master:3.5.1-hadoop3.3.6
     container_name: spark-master
     ports:
       - 8080:8080
@@ -47,7 +47,7 @@ services:
     env_file:
       - ./hadoop-hive.env
   spark-worker:
-    image: bde2020/spark-worker:2.1.0-hadoop2.8-hive-java8
+    image: ruizhizhong058/spark-worker:3.5.1-hadoop3.3.6
     depends_on:
       - spark-master
     environment:
@@ -57,14 +57,14 @@ services:
     env_file:
       - ./hadoop-hive.env
   spark-notebook:
-    image: bde2020/spark-notebook:2.1.0-hadoop2.8-hive
+    image: ruizhizhong058/spark-notebook:2.1.0-hadoop2.8-hive
     container_name: spark-notebook
     env_file:
       - ./hadoop-hive.env
     ports:
       - 9001:9001
   hue:
-    image: bde2020/hdfs-filebrowser:3.11
+    image: ruizhizhong058/hdfs-filebrowser:3.11
     ports:
       - 8088:8088
     environment:

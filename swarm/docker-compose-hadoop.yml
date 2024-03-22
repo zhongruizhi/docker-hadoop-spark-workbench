@@ -1,7 +1,7 @@
 version: '3'
 services:
   namenode:
-    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
+    image: ruizhizhong058/hadoop-namenode:3.3.6-java8
     networks:
       - workbench
     volumes:
@@ -24,7 +24,7 @@ services:
         traefik.port: 50070
 
   datanode:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
+    image: ruizhizhong058/hadoop-datanode:3.3.6-java8
     networks:
       - workbench
     volumes:

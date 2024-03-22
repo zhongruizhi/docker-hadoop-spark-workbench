@@ -15,4 +15,4 @@ services:
 	docker stack deploy -c docker-compose-services.yml services
 
 spark-worker-service:
-	docker service create --detach=false --name spark-worker --network workbench -e SPARK_MASTER=spark://spark-master:7077 --container-label traefik.docker.network=workbench --container-label traefik.port=8081 bde2020/spark-worker:2.2.0-hadoop2.8-hive-java8
+	docker service create --detach=false --name spark-worker --network workbench -e SPARK_MASTER=spark://spark-master:7077 --container-label traefik.docker.network=workbench --container-label traefik.port=8081 ruizhizhong058/spark-worker:3.5.1-hadoop3.3.6

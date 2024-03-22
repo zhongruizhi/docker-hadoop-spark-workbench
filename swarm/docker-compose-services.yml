@@ -1,7 +1,7 @@
 version: '3'
 services:
   zeppelin:
-    image: bde2020/zeppelin:0.0.1-zeppelin-0.7.3-hadoop-2.8.0-spark-2.2.0
+    image: ruizhizhong058/zeppelin:0.11.0
     volumes:
       - zeppelinnotebooks:/opt/zeppelin/notebook
     environment:
@@ -23,7 +23,7 @@ services:
       - workbench
 
   hue:
-    image: bde2020/hdfs-filebrowser:3.11
+    image: ruizhizhong058/hdfs-filebrowser:3.11
     deploy:
       replicas: 1
       mode: replicated

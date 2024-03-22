@@ -4,7 +4,7 @@ get-example:
 	fi
 
 example: get-example
-	docker run --rm -it --network dockerhadoopsparkworkbench_default --env-file ./hadoop.env -e SPARK_MASTER=spark://spark-master:7077 --volume $(shell pwd)/example:/example bde2020/spark-base:2.1.0-hadoop2.8-hive-java8 /spark/bin/spark-submit --master spark://spark-master:7077 /example/SparkWriteApplication.jar
+	docker run --rm -it --network dockerhadoopsparkworkbench_default --env-file ./hadoop.env -e SPARK_MASTER=spark://spark-master:7077 --volume $(shell pwd)/example:/example ruizhizhong058/spark-base:3.5.1-hadoop3.3.6 /spark/bin/spark-submit --master spark://spark-master:7077 /example/SparkWriteApplication.jar
 	docker exec -it namenode hadoop fs -cat /tmp/numbers-as-text/part-00000
 
 clean-example:

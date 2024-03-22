@@ -32,7 +32,7 @@ docker-compose -f docker-compose-hive.yml up -d spark-master spark-worker spark-
 When opening Hue, you might encounter ```NoReverseMatch: u'about' is not a registered namespace``` error after login. I disabled 'about' page (which is default one), because it caused docker container to hang. To access Hue when you have such an error, you need to append /home to your URI: ```http://docker-host-ip:8088/home```
 
 ## Docs
-* [Motivation behind the repo and an example usage @BDE2020 Blog](http://www.big-data-europe.eu/scalable-sparkhdfs-workbench-using-docker/)
+* [Motivation behind the repo and an example usage @ruizhizhong058 Blog](http://www.big-data-europe.eu/scalable-sparkhdfs-workbench-using-docker/)
 
 ## Count Example for Spark Notebooks
 ```

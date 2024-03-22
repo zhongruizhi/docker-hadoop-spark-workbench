@@ -1,7 +1,7 @@
 version: '3'
 services:
   spark-master:
-    image: bde2020/spark-master:2.2.0-hadoop2.8-hive-java8
+    image: ruizhizhong058/spark-master:3.5.1-hadoop3.3.6
     networks:
       - workbench
     deploy:
@@ -16,7 +16,7 @@ services:
       - ./hadoop.env
 
   spark-worker:
-    image: bde2020/spark-worker:2.2.0-hadoop2.8-hive-java8
+    image: ruizhizhong058/spark-worker:3.5.1-hadoop3.3.6
     networks:
       - workbench
     environment:
